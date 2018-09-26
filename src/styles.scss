@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400');
+
+@font-face {
+  font-family: "The Hand";
+  src: url("/assets/fonts/the-hand--light.woff2") format("woff2"), url("/assets/fonts/the-hand--light.woff") format("woff");
+  font-style: normal;
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "The Hand";
+  src: url("/assets/fonts/the-hand--regular.woff2") format("woff2"), url("/assets/fonts/the-hand--regular.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "The Hand";
+  src: url("/assets/fonts/the-hand--black.woff2") format("woff2"), url("/assets/fonts/the-hand--black.woff") format("woff");
+  font-style: normal;
+  font-weight: 800;
+}
+
+/* -- */
+
+body {
+  color: #e9e9e9;
+  background: #2D2D37;
+}
+
+img {
+  width: auto;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+}

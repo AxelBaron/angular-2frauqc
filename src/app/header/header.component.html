@@ -1,3 +1,77 @@
 <header>
-  <h1>2 fr au Qc </h1>
+  <div id="big_baniere">
+    <a [routerLink]="['/']">
+      <img src="/imgs/icons/baniere.png" alt="baniere 2francaisauquebec">
+      <h1>
+        <span id="deux">2</span>
+        <span id="frauqc">
+          <span> français au</span>
+        <span> québec</span>
+        </span>
+      </h1>
+    </a>
+  </div>
+
+  <nav id="menu">
+    <a [routerLink]="['/']" routerLinkActive="is-current">Bds</a>
+    <a [routerLink]="['/','infos']" routerLinkActive="is-current">Infos</a>
+    <a [routerLink]="['/','contact']" routerLinkActive="is-current">Contact</a>
+    <a [routerLink]="['/','dons']" routerLinkActive="is-current">Faire un don</a>
+
+    <div id="header_rs">
+      <a href="https://www.facebook.com/2francaisauquebec" target="_blank"><img src="/imgs/icons/f.png" alt="facebook"></a>
+      <a href="https://twitter.com/2FRauQC" target="_blank"><img src="/imgs/icons/t.png" alt="twiter"></a>
+      <a href="/fr/rss"><img src="/imgs/icons/r.png" alt="RSS"></a>
+    </div>
+
+    <div id="header_lang">
+      <img id="frenchFlag"
+           src="/imgs/icons/flag-france.png"
+           (click)="switchLanguage('fr')"
+           class="choosed"
+           lang="fr"
+           alt="Français"
+           title="Lire en Français">
+      <img id="canadianFlag"
+           src="/imgs/icons/flag-canada.png"
+           (click)="switchLanguage('en')"
+           class=""
+           lang="en"
+           alt="English"
+           title="Read in English">
+      <input type="hidden">
+    </div>
+  </nav>
+
+  <nav id="hamgurger">
+    <a id="icon-button">
+      <p>
+        Menu
+        <img src="/imgs/icons/menu.png" alt="hambuger menu icon">
+      </p>
+    </a>
+    <div id="container_item" style="display: none;">
+      <a class="item" href="/index.php"><p>Bds</p></a>
+      <a class="item" href="/fr/infos"><p>Infos</p></a>
+      <a class="item" href="/fr/contact"><p>Contact</p></a>
+      <a class="item" href="/fr/donations"><p>Faire un don</p></a>
+      <a class="item" href="https://www.facebook.com/2francaisauquebec" target="_blank">
+        <p><img src="/imgs/icons/f.png" alt="facebook"></p>
+      </a>
+      <a class="item" href="https://twitter.com/2FRauQC" target="_blank"><p><img src="/imgs/icons/t.png" alt="twiter"></p></a>
+      <a class="item" href="/fr/rss"><p><img src="/imgs/icons/r.png" alt="RSS"></p></a>
+
+      <a class="item" lang="fr" (click)="switchLanguage('fr')" title="Lire en Français">
+        <p>Lire en Français
+          <img id="frenchFlag" src="/imgs/icons/flag-france.png" alt="">
+        </p>
+      </a>
+      <a class="item" lang="en" (click)="switchLanguage('en')">
+        <p>Read in English
+          <img id="canadianFlag" src="/imgs/icons/flag-canada.png" alt="">
+        </p>
+      </a>
+    </div>
+  </nav>
+  <hr>
 </header>
