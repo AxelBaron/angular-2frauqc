@@ -1,0 +1,19 @@
+.strip {
+  margin-bottom: 5rem;
+  text-align: center;
+
+  &__title {
+    margin: 0.625em 0;
+    font: {
+      family: 'Source Sans Pro', sans-serif;
+      size: 2rem;
+      weight: 200;
+    }
+    letter-spacing: 0.02em;
+  }
+
+  &__image {
+    margin: auto;
+    max-width: 600px; // FIXME remove in production
+  }
+}

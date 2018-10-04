@@ -1,24 +1,17 @@
 import {Component} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+    styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    title = 'app';
+    title = '2 Francais au Quebec';
 
     user = {
         name: 'Arthur',
         age: 42
     };
 
-    constructor(private translate: TranslateService) {
-        translate.setDefaultLang('en');
-    }
-
-    switchLanguage(language: string) {
-        this.translate.use(language);
-    }
+    constructor() {}
 }

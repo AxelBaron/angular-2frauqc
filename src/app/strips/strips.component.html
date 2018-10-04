@@ -1,0 +1,2 @@
+<app-strip *ngFor="let strip of strips" [strip]="strip"></app-strip>
+<button type="button" class="strips__more" *ngIf="isVisible" (click)="loadMore()">Afficher les BDs précédentes !</button>

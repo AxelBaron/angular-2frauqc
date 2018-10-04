@@ -1,0 +1,19 @@
+.strips {
+  text-align: center;
+
+  &__more {
+    display: block;
+    width: 600px;
+    padding: 15px;
+    margin: 30px auto;
+    font: {
+      family: "The Hand";
+      size: 53px;
+    }
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: inherit;
+    background: none;
+    border: 0;
+  }
+}
