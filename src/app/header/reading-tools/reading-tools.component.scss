@@ -1,4 +1,4 @@
-// _m-reading-tools.scss
+@import "../../../assets/sass/_main.scss";
 
 .reading-tools {
   display: inline-block;
@@ -35,7 +35,7 @@
     &.hidden {
       display: none;
 
-      @include respond-to(medium){
+      @include respond-to(medium) {
         visibility: hidden;
       }
     }
@@ -47,11 +47,11 @@
 
   &__select-comic {
     display: inline-block;
-    
+
     &.hidden {
       display: none;
 
-      @include respond-to(medium){
+      @include respond-to(medium) {
         visibility: hidden;
       }
     }

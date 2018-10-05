@@ -14,67 +14,24 @@
 
   <div class="header__nav container">
 
-  <button class="header__nav__trigger">
-    <div class="burger">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    Menu
-  </button>
-  <div class="lang">
-    <button class="lang__trigger">FR <!-- TODO: *current lang* --></button>
-    <div class="lang__content">
-      <a class="lang__item">EN<!-- TODO: *other lang* --></a>
-    </div>
-  </div> <!-- /.lang -->
+    <button class="header__nav__trigger">
+      <app-burger></app-burger>
+      Menu
+    </button>
 
-  <div class="header__nav__content">
-    <div class="header__nav__primary">
-      <nav class="nav">
-        <a class="nav__item" [routerLink]="['/']" routerLinkActive="is-current">Home</a>
-        <a class="nav__item" [routerLink]="['/','infos']" routerLinkActive="is-current">À propos</a>
-      </nav> <!-- /.nav -->
+    <!--For mobile display-->
+    <app-lang-switcher></app-lang-switcher>
 
-      <div class="socials-networks">
-        <a href="https://www.facebook.com/2francaisauquebec" class="socials-networks__item">
-          <span class="icon icon-facebook"></span>
-        </a>
-        <a href="https://twitter.com/2FRauQC" class="socials-networks__item">
-          <span class="icon icon-twitter"></span>
-        </a>
-        <a href="/" class="socials-networks__item">
-          <span class="icon icon-rss"></span>
-        </a>
-        <a href="">
-          <span class="icon icon-email"></span>
-        </a>
-      </div> <!-- /.socials-networks -->
+    <div class="header__nav__content">
+      <div class="header__nav__primary">
+        <app-nav></app-nav>
+        <app-social-networks></app-social-networks>
+        <app-lang-switcher></app-lang-switcher>
+      </div> <!-- /.header__nav__primary -->
+    </div> <!-- /.header__nav__content -->
 
-      <div class="lang">
-        <button class="lang__trigger">FR<!-- TODO: *current lang* --></button>
-        <div class="lang__content">
-          <!--TODO: Notify the translation not available yet when you are on solo comic page-->
-          <a href="" class="lang__item">EN<!-- TODO: *other lang* --></a>
-        </div>
-      </div> <!-- /.lang -->
-    </div> <!-- /.header__nav__primary -->
-  </div> <!-- /.header__nav__content -->
-
-  <div class="header__nav__secondary">
-    <div class="reading-tools">
-      <button class="reading-tools__invert-reading-way" type="button">
-        Sens de lecture
-      </button>
-      <div class="reading-tools__select-comic">
-        <select name="select-comics">
-          <!--TODO: Do the foreach-->
-          <option>Select comics</option>
-          Do the foreach
-        </select>
-      </div>
-    </div> <!-- /.reading-tools -->
-  </div> <!-- /.header__nav__secondary -->
+    <div class="header__nav__secondary">
+      <app-reading-tools></app-reading-tools>
+    </div> <!-- /.header__nav__secondary -->
   </div> <!-- /.header__nav.container -->
 </header> <!-- /.header -->

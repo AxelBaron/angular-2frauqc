@@ -13,6 +13,11 @@ import { StripComponent } from './strip/strip.component';
 import { StripService } from './strip.service';
 import { AppRoutingModule } from './app-routing.module';
 import { StripsComponent } from './strips/strips.component';
+import { BurgerComponent } from './header/burger/burger.component';
+import { LangSwitcherComponent } from './header/lang-switcher/lang-switcher.component';
+import { SocialNetworksComponent } from './header/social-networks/social-networks.component';
+import { NavComponent } from './header/nav/nav.component';
+import { ReadingToolsComponent } from './header/reading-tools/reading-tools.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -25,7 +30,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     HeaderComponent,
     StripComponent,
-    StripsComponent
+    StripsComponent,
+    BurgerComponent,
+    LangSwitcherComponent,
+    SocialNetworksComponent,
+    NavComponent,
+    ReadingToolsComponent
   ],
   imports: [
     BrowserModule,

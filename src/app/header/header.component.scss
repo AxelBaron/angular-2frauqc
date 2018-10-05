@@ -1,25 +1,10 @@
 @import "../../assets/sass/_main.scss";
 
 .header {
-  &.is-sticky {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    border-bottom: 1px solid color(foreground);
-    padding: 3px 0 3px 0;
-    z-index: 10;
-  }
-
   &__primary {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    .is-sticky & {
-      margin: 0 15px 0 15px;
-    }
   }
 
   &__logo {
@@ -28,10 +13,6 @@
 
     @include respond-to(medium) {
       display: block;
-    }
-
-    .is-sticky & {
-      display: none;
     }
   }
 
@@ -49,10 +30,6 @@
 
     &__number {
       @include font-size(200px);
-
-      .is-sticky & {
-        @include font-size(60px);
-      }
     }
 
     &__content {
@@ -65,21 +42,9 @@
       text-transform: uppercase;
       @include font-size(55px);
 
-      .is-sticky & {
-        @include font-size(20px);
-      }
-
       &:last-child {
         @include font-size(100px);
-
-        .is-sticky & {
-          @include font-size(35px);
-        }
       }
-    }
-
-    .is-sticky & {
-      margin: 0;
     }
   }
 
@@ -89,16 +54,6 @@
 
     @include respond-to(medium) {
       margin-top: inherit;
-    }
-
-    .is-sticky & {
-      margin: 0 15px 0 15px;
-    }
-
-    &.margin-top {
-      .is-sticky & {
-        margin-top: 16px;
-      }
     }
 
     &__trigger {
@@ -113,106 +68,6 @@
 
       @include respond-to(medium) {
         display: none;
-      }
-
-      .is-sticky & {
-        @include font-size(30px);
-      }
-
-      .burger {
-        width: 40px;
-        height: 30px;
-        position: relative;
-        cursor: pointer;
-        display: inline-block;
-        margin-right: 10px;
-        @include transition();
-
-        .is-sticky & {
-          width: 30px;
-          height: 20px;
-        }
-
-        span {
-          display: block;
-          position: absolute;
-          height: 5px;
-          width: 100%;
-          background: color(foreground);
-          border-radius: 9px;
-          opacity: 1;
-          left: 0;
-          transition: .25s ease-in-out;
-
-          .is-sticky & {
-            height: 3px;
-          }
-
-          &:nth-child(1) {
-            top: 0;
-
-            .is-open & {
-              top: 18px;
-              width: 0%;
-              left: 50%;
-            }
-          }
-
-          &:nth-child(2) {
-            .is-open & {
-              transform: rotate(45deg);
-            }
-          }
-
-          &:nth-child(3) {
-            .is-open & {
-              transform: rotate(-45deg);
-            }
-          }
-
-          &:nth-child(4) {
-            .is-open & {
-              top: 18px;
-              width: 0%;
-              left: 50%;
-            }
-          }
-
-          &:nth-child(2), &:nth-child(3) {
-            top: 12px;
-
-            .is-sticky & {
-              top: 7px;
-            }
-          }
-
-          &:nth-child(4) {
-            top: 25px;
-
-            .is-sticky & {
-              top: 14px;
-            }
-          }
-        }
-      }
-    }
-
-    .lang {
-      display: inline-block;
-      margin-left: 20px;
-
-      @include respond-to(medium) {
-        display: none;
-      }
-
-      .is-sticky & {
-        * {
-          @include font-size(30px);
-
-          @include respond-to(medium) {
-            font-size: inherit;
-          }
-        }
       }
     }
 
@@ -244,23 +99,10 @@
         text-decoration: none;
         color: color(foreground);
         @include font-size(45px);
-
-        .is-sticky & {
-          @include font-size(30px);
-        }
       }
 
       .socials-networks {
         margin-left: 5px;
-      }
-
-      .lang {
-        margin: 0 0 0 10px;
-        display: none;
-
-        @include respond-to(medium) {
-          display: block;
-        }
       }
     }
 
@@ -271,11 +113,6 @@
       .reading-tools {
         @include respond-to(medium) {
           margin: 10px 0 0 0;
-        }
-
-        .is-sticky & {
-          margin: 5px 0 0 0;
-          padding-top: 5px;
         }
       }
     }

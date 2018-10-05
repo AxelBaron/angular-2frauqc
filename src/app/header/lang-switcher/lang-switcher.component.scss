@@ -1,7 +1,6 @@
-// _m-lang.scss
+@import "../../../assets/sass/_main.scss";
 
 .lang {
-
   * {
     @include font-size(45px);
     font-family: font('secondary');
