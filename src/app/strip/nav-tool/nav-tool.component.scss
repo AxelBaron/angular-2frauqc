@@ -5,6 +5,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  margin: 50px 0;
 
   @include respond-to(medium) {
     flex-direction: row;
@@ -38,27 +39,5 @@
         transform: rotate(-90deg);
       }
     }
-  }
-
-  &--margin-top {
-    margin-top: 10px;
-    position: relative;
-    padding-top: 50px;
-
-    &:before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      width: 200px;
-      height: 1px;
-      background: color('foreground');
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
-
-  &--margin-bottom {
-    margin-bottom: 60px;
   }
 }
