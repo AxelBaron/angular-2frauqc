@@ -92,6 +92,7 @@
 
       @include respond-to(medium) {
         flex-direction: row;
+        align-items: center;
       }
 
       * {

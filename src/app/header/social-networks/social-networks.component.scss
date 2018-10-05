@@ -3,69 +3,30 @@
 .socials-networks {
   display: flex;
   justify-content: center;
+  align-items: center;
 
   &__item {
-    @include size(40px);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    margin: 0 5px;
 
-    .is-sticky & {
-      @include size(30px);
+    img {
+      width: 35px;
     }
   }
 
   .icon {
     display: inline-block;
+    @include transition();
 
-    &::before {
-      display: inline-block;
-      @include transition();
-      @include font-size(35px);
-      .is-sticky & {
-        @include font-size(25px);
-      }
-    }
-
-    &-twitter {
-      &::before {
-        @include font-size(37px);
-        .is-sticky & {
-          @include font-size(25px);
-        }
-      }
-    }
-
-    &-rss {
-      &::before {
-        @include font-size(28px);
-        position: relative;
-        top: -3px;
-
-        .is-sticky & {
-          @include font-size(20px);
-        }
-      }
-    }
-
-    &-email {
-      &::before {
-        @include font-size(40px);
-        position: relative;
-        top: 3px;
-
-        .is-sticky & {
-          @include font-size(30px);
-        }
-      }
+    &--rss {
+      width: 30px;
     }
 
     &:hover {
-      &::before {
-        color: darken(color('foreground'), 10%);
-        transform: translateY(-5px);
-      }
+      transform: translateY(-5px);
     }
   }
 }

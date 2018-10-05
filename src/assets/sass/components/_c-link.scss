@@ -9,14 +9,13 @@
     text-decoration: none;
     @include font-size(16px);
 
-    &:before {
-      content: $icon-arrow;
-      display: inline-block;
-      font-family: font(icon);
-      transform: rotate(90deg);
-      margin-right: 10px;
+    img {
       position: relative;
-      top: 2px;
+      top: 5px;
+      display: inline-block;
+      width: 25px;
+      margin-right: 10px;
+      transform: rotate(90deg);
     }
   }
 
