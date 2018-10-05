@@ -9,8 +9,15 @@
   }
 
   &__item {
+    font-family: font('secondary');
+    @include font-size(45px);
     text-transform: uppercase;
     @include transition();
+
+    & + & {
+      margin-left: 20px;
+    }
+
     &:hover {
       display: inline-block;
       color: darken(color('foreground'), 10%);

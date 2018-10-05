@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Strip } from '../strip';
 import { STRIPS } from '../mock-strips';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-strip',
@@ -12,7 +12,9 @@ export class StripComponent implements OnInit {
 
   @Input() strip: Strip;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+    public router: Router,
+    private _route: ActivatedRoute) { }
 
   async ngOnInit() {
     if (!this.strip) {
@@ -21,7 +23,7 @@ export class StripComponent implements OnInit {
   }
 
   async getData() {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = +this._route.snapshot.paramMap.get('id');
     return STRIPS.filter(item => item.id === id)[0];
   }
 }
