@@ -1,0 +1,6 @@
+// _layouts.scss
+/// Contains styling for larger layout components; e.g. nav, header, footer, etc.
+
+@import "layouts/l-grid";
+@import "layouts/l-header";
+@import "layouts/l-footer";

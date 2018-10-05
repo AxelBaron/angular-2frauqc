@@ -1,0 +1,59 @@
+// _m-reading-tools.scss
+
+.reading-tools {
+  display: inline-block;
+  padding-top: 10px;
+  margin: 10px 0 0 0;
+  border-top: 1px solid color(foreground);
+
+  &__invert-reading-way {
+    appearance: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    align-content: center;
+    font-family: font(primary);
+    margin-right: 8px;
+    outline: none;
+
+    &:after {
+      content: $icon-arrow;
+      display: inline-block;
+      font-family: font(icon);
+      margin-left: 5px;
+      transform-origin: 50% 40% 0;
+      @include transition();
+    }
+
+    &.invert {
+      &:after {
+        transform: rotateX(180deg);
+      }
+    }
+
+    &.hidden {
+      display: none;
+
+      @include respond-to(medium){
+        visibility: hidden;
+      }
+    }
+
+    .is-sticky & {
+      padding: 5px;
+    }
+  }
+
+  &__select-comic {
+    display: inline-block;
+    
+    &.hidden {
+      display: none;
+
+      @include respond-to(medium){
+        visibility: hidden;
+      }
+    }
+  }
+}

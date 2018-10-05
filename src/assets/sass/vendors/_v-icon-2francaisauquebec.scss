@@ -1,0 +1,74 @@
+// _icon-2francaisauquebec.scss
+
+$icomoon-font-path: "/fonts/icon-2francaisauquebec" !default;
+
+$icon-canada-leaf: "\e900";
+$icon-facebook: "\e901";
+$icon-twitter: "\e902";
+$icon-rss: "\e903";
+$icon-email: "\e904";
+$icon-arrow: "\e905";
+
+
+@font-face {
+  font-family: 'icon-2francaisauquebec';
+  src:  url('#{$icomoon-font-path}/icon-2francaisauquebec.eot?it4f5d');
+  src:  url('#{$icomoon-font-path}/icon-2francaisauquebec.eot?it4f5d#iefix') format('embedded-opentype'),
+  url('#{$icomoon-font-path}/icon-2francaisauquebec.ttf?it4f5d') format('truetype'),
+  url('#{$icomoon-font-path}/icon-2francaisauquebec.woff?it4f5d') format('woff'),
+  url('#{$icomoon-font-path}/icon-2francaisauquebec.svg?it4f5d#icon-2francaisauquebec') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icon-2francaisauquebec' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-canada-leaf {
+  &:before {
+    content: $icon-canada-leaf;
+  }
+}
+.icon-facebook {
+  &:before {
+    content: $icon-facebook;
+  }
+}
+.icon-twitter {
+  &:before {
+    content: $icon-twitter;
+  }
+}
+.icon-rss {
+  &:before {
+    content: $icon-rss;
+  }
+}
+.icon-email {
+  &:before {
+    content: $icon-email;
+  }
+}
+.icon-arrow {
+  &:before {
+    content: $icon-arrow;
+  }
+}
+
+
+
+
+
+

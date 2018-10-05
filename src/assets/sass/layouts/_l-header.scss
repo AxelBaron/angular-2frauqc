@@ -1,4 +1,4 @@
-@import "../../assets/sass/_main.scss";
+// _l-header.scss
 
 .header {
   &.is-sticky {
@@ -62,7 +62,6 @@
     }
 
     &__item {
-      text-transform: uppercase;
       @include font-size(55px);
 
       .is-sticky & {

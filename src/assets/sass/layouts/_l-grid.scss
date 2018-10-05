@@ -1,0 +1,10 @@
+// _l-grid.scss
+
+.container {
+  max-width: 320px;
+  margin: auto;
+
+  @include respond-to(medium) {
+    max-width: $layout-width;
+  }
+}

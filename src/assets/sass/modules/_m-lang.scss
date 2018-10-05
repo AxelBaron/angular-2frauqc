@@ -1,0 +1,82 @@
+// _m-lang.scss
+
+.lang {
+
+  * {
+    @include font-size(45px);
+    font-family: font('secondary');
+  }
+
+  &__trigger {
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    @include transition();
+
+    &::before {
+      display: inline-block;
+      content: '|';
+      margin-right: 15px;
+      @include transition();
+    }
+
+    &::after {
+      content: $icon-arrow;
+      display: inline-block;
+      font-family: font(icon);
+      @include font-size(15px);
+      margin-left: 7px;
+      transform-origin: 50% 40% 0;
+      @include transition();
+    }
+  }
+
+  &__content {
+    position: absolute;
+    overflow: hidden;
+    max-height: 0px;
+    @include transition();
+    z-index: 2;
+  }
+
+  &__item {
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    cursor: pointer;
+    @include transition();
+    text-decoration: none;
+
+    &::before {
+      content: '|';
+      display: inline;
+      margin-right: 15px;
+    }
+
+    &::after {
+      content: $icon-arrow;
+      display: inline-block;
+      font-family: font(icon);
+      @include font-size(15px);
+      margin-left: 7px;
+      visibility: hidden;
+    }
+  }
+
+  &.is-open {
+    .lang {
+      &__content {
+        max-height: 100px;
+      }
+
+      &__trigger:after {
+        transform: rotateX(-180deg);
+      }
+    }
+  }
+}

@@ -1,77 +1,80 @@
-<header>
-  <div id="big_baniere">
-    <a [routerLink]="['/']">
-      <img src="/imgs/icons/baniere.png" alt="baniere 2francaisauquebec">
-      <h1>
-        <span id="deux">2</span>
-        <span id="frauqc">
-          <span> français au</span>
-        <span> québec</span>
-        </span>
-      </h1>
-    </a>
+<header class="header">
+  <div class="header__primary container">
+    <a class="header__logo" [routerLink]="['/']"><img src="../assets/img/logo--large.png" alt="baniere 2 français au québec"></a>
+    <h1 class="header__title">
+      <a class="header__title__container" [routerLink]="['/']">
+        <span class="header__title__number">2</span>
+        <span class="header__title__content">
+                <span class="header__title__item">français au</span>
+                <span class="header__title__item">québec</span>
+            </span>
+      </a>
+    </h1>
   </div>
 
-  <nav id="menu">
-    <a [routerLink]="['/']" routerLinkActive="is-current">Bds</a>
-    <a [routerLink]="['/','infos']" routerLinkActive="is-current">Infos</a>
-    <a [routerLink]="['/','contact']" routerLinkActive="is-current">Contact</a>
-    <a [routerLink]="['/','dons']" routerLinkActive="is-current">Faire un don</a>
+  <div class="header__nav container">
 
-    <div id="header_rs">
-      <a href="https://www.facebook.com/2francaisauquebec" target="_blank"><img src="/imgs/icons/f.png" alt="facebook"></a>
-      <a href="https://twitter.com/2FRauQC" target="_blank"><img src="/imgs/icons/t.png" alt="twiter"></a>
-      <a href="/fr/rss"><img src="/imgs/icons/r.png" alt="RSS"></a>
+  <button class="header__nav__trigger">
+    <div class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-
-    <div id="header_lang">
-      <img id="frenchFlag"
-           src="/imgs/icons/flag-france.png"
-           (click)="switchLanguage('fr')"
-           class="choosed"
-           lang="fr"
-           alt="Français"
-           title="Lire en Français">
-      <img id="canadianFlag"
-           src="/imgs/icons/flag-canada.png"
-           (click)="switchLanguage('en')"
-           class=""
-           lang="en"
-           alt="English"
-           title="Read in English">
-      <input type="hidden">
+    Menu
+  </button>
+  <div class="lang">
+    <button class="lang__trigger">FR <!-- TODO: *current lang* --></button>
+    <div class="lang__content">
+      <a class="lang__item">EN<!-- TODO: *other lang* --></a>
     </div>
-  </nav>
+  </div> <!-- /.lang -->
 
-  <nav id="hamgurger">
-    <a id="icon-button">
-      <p>
-        Menu
-        <img src="/imgs/icons/menu.png" alt="hambuger menu icon">
-      </p>
-    </a>
-    <div id="container_item" style="display: none;">
-      <a class="item" href="/index.php"><p>Bds</p></a>
-      <a class="item" href="/fr/infos"><p>Infos</p></a>
-      <a class="item" href="/fr/contact"><p>Contact</p></a>
-      <a class="item" href="/fr/donations"><p>Faire un don</p></a>
-      <a class="item" href="https://www.facebook.com/2francaisauquebec" target="_blank">
-        <p><img src="/imgs/icons/f.png" alt="facebook"></p>
-      </a>
-      <a class="item" href="https://twitter.com/2FRauQC" target="_blank"><p><img src="/imgs/icons/t.png" alt="twiter"></p></a>
-      <a class="item" href="/fr/rss"><p><img src="/imgs/icons/r.png" alt="RSS"></p></a>
+  <div class="header__nav__content">
+    <div class="header__nav__primary">
+      <nav class="nav">
+        <a class="nav__item" [routerLink]="['/']" routerLinkActive="is-current">Home</a>
+        <a class="nav__item" [routerLink]="['/','infos']" routerLinkActive="is-current">À propos</a>
+      </nav> <!-- /.nav -->
 
-      <a class="item" lang="fr" (click)="switchLanguage('fr')" title="Lire en Français">
-        <p>Lire en Français
-          <img id="frenchFlag" src="/imgs/icons/flag-france.png" alt="">
-        </p>
-      </a>
-      <a class="item" lang="en" (click)="switchLanguage('en')">
-        <p>Read in English
-          <img id="canadianFlag" src="/imgs/icons/flag-canada.png" alt="">
-        </p>
-      </a>
-    </div>
-  </nav>
-  <hr>
-</header>
+      <div class="socials-networks">
+        <a href="https://www.facebook.com/2francaisauquebec" class="socials-networks__item">
+          <span class="icon icon-facebook"></span>
+        </a>
+        <a href="https://twitter.com/2FRauQC" class="socials-networks__item">
+          <span class="icon icon-twitter"></span>
+        </a>
+        <a href="/" class="socials-networks__item">
+          <span class="icon icon-rss"></span>
+        </a>
+        <a href="">
+          <span class="icon icon-email"></span>
+        </a>
+      </div> <!-- /.socials-networks -->
+
+      <div class="lang">
+        <button class="lang__trigger">FR<!-- TODO: *current lang* --></button>
+        <div class="lang__content">
+          <!--TODO: Notify the translation not available yet when you are on solo comic page-->
+          <a href="" class="lang__item">EN<!-- TODO: *other lang* --></a>
+        </div>
+      </div> <!-- /.lang -->
+    </div> <!-- /.header__nav__primary -->
+  </div> <!-- /.header__nav__content -->
+
+  <div class="header__nav__secondary">
+    <div class="reading-tools">
+      <button class="reading-tools__invert-reading-way" type="button">
+        Sens de lecture
+      </button>
+      <div class="reading-tools__select-comic">
+        <select name="select-comics">
+          <!--TODO: Do the foreach-->
+          <option>Select comics</option>
+          Do the foreach
+        </select>
+      </div>
+    </div> <!-- /.reading-tools -->
+  </div> <!-- /.header__nav__secondary -->
+  </div> <!-- /.header__nav.container -->
+</header> <!-- /.header -->

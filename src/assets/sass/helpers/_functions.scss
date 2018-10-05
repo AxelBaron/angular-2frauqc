@@ -1,0 +1,99 @@
+// _functions.scss
+
+/// Get a z-index value from a layer name
+/// @access public
+/// @param {String} $layer - Layer's name
+/// @return {Number}
+/// @require $z-indexes
+@function z($layer) {
+  @if not map-has-key($z-indexes, $layer) {
+    @error 'There is no layer named `#{$layer}` in $z-indexes. '
+         + 'Layer should be one of: #{map-keys($z-indexes)}.';
+  }
+
+  @return map-get($z-indexes, $layer);
+}
+
+/// Get a color value from a color type name and variant
+/// @access public
+/// @param {String} $type - Color type's name
+/// @param {String} $variant - Color variant's name
+/// @return {Hex}
+/// @require $colors, $color-key
+@function color($type, $variant: $color-key) {
+  @if not map-has-key($colors, $type) {
+    @error 'There is no color type named `#{$type}` in $colors. '
+         + 'Color type should be one of: #{map-keys($colors)}.';
+  }
+
+  $color-map: map-get($colors, $type);
+
+  @if not map-has-key($color-map, $variant) {
+    @error 'There is no color variant named `#{$variant}` in $color-map. '
+         + 'variant should be one of: #{map-keys($color-map)}.';
+  }
+
+  @return map-get($color-map, $variant);
+}
+
+/// Get a font value from a font type name
+/// @access public
+/// @param {String} $type - Font type's name
+/// @param {String} $variant - Font variant's name
+/// @return {String}
+/// @require $fonts, $font-key
+@function font($type, $variant: $font-key) {
+  @if not map-has-key($fonts, $type) {
+    @error 'There is no font type named `#{$type}` in $fonts. '
+         + 'Font type should be one of: #{map-keys($fonts)}.';
+  }
+
+  $font-map: map-get($fonts, $type);
+
+  @if not map-has-key($font-map, $variant) {
+    @error 'There is no font variant named `#{$variant}` in $font-map. '
+         + 'variant should be one of: #{map-keys($font-map)}.';
+  }
+
+  @return map-get($font-map, $variant);
+}
+
+/// Get a value without unit
+/// @access public
+/// @param {Number} $num - value with unit
+/// @return {Number}
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+/// Get a em value from a pixel value
+/// @access public
+/// @param {Number} $pixels
+/// @param {Number} $context - default: 16
+/// @return {Number}
+/// @require $font-size-base
+@function em($pixels, $context: $font-size-base) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return $pixels / $context * 1em;
+}
+
+/// Get a rem value from a pixel value
+/// @access public
+/// @param {Number} $pixels
+/// @param {Number} $context - default: 16
+/// @return {Number}
+/// @require $font-size-base
+@function rem($pixels, $context: $font-size-base) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return $pixels / $context * 1rem;
+}

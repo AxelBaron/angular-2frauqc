@@ -1,0 +1,63 @@
+// _m-comics-nav.scss
+
+.comics-nav {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  @include respond-to(medium){
+    flex-direction: row;
+  }
+
+  &__link {
+    @include font-size(24px);
+    font-family: font('secondary');
+    text-decoration: none;
+    padding: 10px;
+
+    @include respond-to(medium){
+      padding: 0 10px;
+    }
+
+    .icon:before {
+      display: inline-block;
+      @include font-size(20px);
+      padding: 0 5px;
+    }
+
+    &--prev {
+      .icon:before {
+        transform: rotate(90deg);
+      }
+    }
+
+    &--next {
+      .icon:before {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+
+  &--margin-top {
+    margin-top: 10px;
+    position: relative;
+    padding-top: 50px;
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      width: 200px;
+      height: 1px;
+      background: color('foreground');
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &--margin-bottom {
+    margin-bottom: 60px;
+  }
+}

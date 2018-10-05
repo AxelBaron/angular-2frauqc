@@ -1,0 +1,33 @@
+// _l-footer.scss
+
+.footer {
+  text-align: center;
+
+  &__copyright {
+    margin-bottom: 15px;
+    color: color('gray', 'dark');
+  }
+
+  #up {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    @include size(50px);
+    text-decoration: none;
+    opacity: 0;
+    @include transition();
+
+    &.is-visible {
+      opacity: 0.5;
+    }
+
+    span {
+      font-family: font('secondary');
+      position: relative;
+      top: -38px;
+      color: white;
+      background: transparent;
+      @include font-size(20px);
+    }
+  }
+}

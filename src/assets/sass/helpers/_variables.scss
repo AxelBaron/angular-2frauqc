@@ -1,0 +1,75 @@
+// _variables.scss
+
+$font-size-base: 14px; // required by rem() mixins
+$transition-duration: 500ms;
+//$icomoon-font-path: '../fonts/ao-icon-basefront';
+$layout-width: 500px;
+
+//-------------------------------------------------------------------//
+
+/// Colors map, gathering all colors of the application
+/// @access private
+/// @type Map
+/// @prop {String} key - color name
+/// @prop {Hex} value - color value mapped to the key
+$color-key: 'base' !default;
+$colors: (
+        'foreground':(
+                'base': #3e3e3e, // Temporary
+                'invert': red
+        ),
+        'background': (
+                'base': #f9f9f9, // Temporary
+                'invert': red
+        ),
+        'gray': (
+                'base': #ededed, // Temporary
+                'medium': #cacaca, // Temporary
+                'dark': #787878
+        )
+);
+
+/// Fonts map, gathering all fonts of the application
+/// @access private
+/// @type Map
+/// @prop {String} key - font name
+/// @prop {String} value - font value mapped to the key
+$font-key: 'base' !default;
+$fonts: (
+        'primary': (
+                'base': ('Helvetica Neue Lt', sans-serif)
+        ),
+        'secondary': (
+                'base':('The Hand', sans-serif)
+        ),
+        'icon': (
+                'base':('icon-2francaisauquebec')
+        )
+);
+
+/// Breakpoints map, gathering all breakpoints of the application
+/// @access private
+/// @type Map
+/// @prop {String} key - Size's name
+/// @prop {Number} value - min-width value mapped to the key
+$breakpoints: (
+        'small': (min-width: 480px), // never used normaly
+        'medium': (min-width: 750px),
+        'large': (min-width: 1024px),
+        'desktop': (min-width: 1240px),
+        'custom': (min-width: $layout-width),
+        'huge': (min-width: 1440px),
+        'insane': (min-width: 2560px) // >4K ('-.-)
+);
+
+/// Z-indexes map, gathering all Z layers of the application
+/// @access private
+/// @type Map
+/// @prop {String} key - Layers name
+/// @prop {Number} value - Z value mapped to the key
+$z-indexes: (
+        'modal': 5000,
+        'dropdown': 4000,
+        'default': 1,
+        'below': -1,
+);

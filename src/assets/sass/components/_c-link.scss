@@ -1,0 +1,33 @@
+// _c-link.scss
+
+.link {
+  @include transition();
+
+  &--back {
+    display: inline-block;
+    margin-bottom: 60px;
+    text-decoration: none;
+    @include font-size(16px);
+
+    &:before {
+      content: $icon-arrow;
+      display: inline-block;
+      font-family: font(icon);
+      transform: rotate(90deg);
+      margin-right: 10px;
+      position: relative;
+      top: 2px;
+    }
+  }
+
+  &--rss {
+    display: inline-block;
+    margin: auto;
+    padding: 10px;
+    background: color('gray', 'medium');
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}

@@ -1,0 +1,14 @@
+// _m-article.scss
+
+.article {
+  padding: 0 15px;
+
+  &__content {
+    margin-bottom: 30px;
+
+    * {
+      @include font-size(14px);
+      line-height: em(22px, 14px);
+    }
+  }
+}

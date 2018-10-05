@@ -1,0 +1,25 @@
+// _m-comics.scss
+
+.comics {
+  margin: 60px 0 80px 0;
+  text-align: center;
+  opacity: 1;
+  max-height: none;
+  overflow: hidden;
+  @include transition();
+
+  h2 {
+    font-family: font(primary);
+    @include font-size(20px);
+  }
+
+  &.hidden {
+    max-height: 0px;
+    opacity: 0;
+    margin: 0;
+  }
+
+  &--solo{
+    margin: 30px 0 30px 0;
+  }
+}

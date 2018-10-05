@@ -1,0 +1,99 @@
+// _mixins.scss
+
+/// Helper to clear inner floats
+/// @access public
+/// @link http://nicolasgallagher.com/micro-clearfix-hack/ Micro Clearfix
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+/// Responsive breakpoint manager
+/// @access public
+/// @param {String} $breakpoint - Breakpoint
+/// @requires $breakpoints
+@mixin respond-to($breakpoint) {
+  $raw-query: map-get($breakpoints, $breakpoint);
+
+  @if $raw-query {
+    $query: if(
+                    type-of($raw-query) == 'string',
+                    unquote($raw-query),
+                    inspect($raw-query)
+    );
+
+    @media #{$query} {
+      @content;
+    }
+  } @else {
+    @error 'No value found for `#{$breakpoint}`. '
+         + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}
+
+/// Helper to size an element
+/// @access public
+/// @param {Length} $width
+/// @param {Length} $height
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+/// Helper to convert font-size to rem with fallback
+/// @param {Length} $size - in px
+/// @param {Length} $context - in px
+/// @requires $font-size-base
+@mixin font-size($size, $context: $font-size-base) {
+  @if (unitless($size)) {
+    $size: $size * 1px;
+  }
+
+  font-size: $size; // fallback
+  font-size: #{$size / $context}rem;
+}
+
+/// Mixin to style inputs placeholders
+@mixin input-placeholder {
+  &::-webkit-input-placeholder {
+    @content
+  }
+  &:-moz-placeholder {
+    @content
+  }
+  &::-moz-placeholder {
+    @content
+  }
+  &:-ms-input-placeholder {
+    @content
+  }
+}
+
+/// Helper to create better transition
+/// @param {String} $duration - in milliseconde (ms or s)
+/// @param {String} $type - transition type (default: linear)
+/// @requires $transition-duration
+@mixin transition($duration: $transition-duration, $type: cubic-bezier(0.25, 0.46, 0.45, 0.94)) {
+  transition: $duration $type;
+}
+
+@mixin center-h($position) {
+  position: $position;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin center-v($position) {
+  position: $position;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin center-h-v($position) {
+  position: $position;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}

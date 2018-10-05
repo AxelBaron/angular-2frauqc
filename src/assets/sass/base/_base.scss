@@ -1,0 +1,13 @@
+// _base.scss
+
+* {
+  box-sizing: border-box;
+  font-family: font('primary');
+  color: color('foreground');
+  background: color('background');
+  @include font-size(12px);
+}
+
+body.sticky-margin-top {
+  margin-top: 400px;  // Nav height + Sticky nav height
+}

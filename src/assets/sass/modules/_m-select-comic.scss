@@ -1,0 +1,85 @@
+// _m-select-comic.scss
+
+[name='select-comics'] {
+  border: none;
+  background: transparent;
+  position: relative;
+  width: 150px;
+
+  &.is-hidden {
+    display: none;
+  }
+}
+
+.select-comics {
+  display: inline-block;
+  width: 150px;
+  position: relative;
+  text-align: left;
+
+  &__trigger {
+    position: relative;
+    padding-bottom: 5px;
+
+    &.is-hidden {
+      display: none;
+    }
+
+    .icon:before {
+      position: absolute;
+      right: 0;
+      @include transition();
+      display: inline-block;
+      transform-origin: 50% 40% 0;
+      .is-open & {
+        transform: rotateX(180deg);
+      }
+    }
+  }
+
+  &__container {
+    max-height: 0px;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    box-shadow: 1px 1px 10px #6f6d6d;
+    // box-shadow: inset hoff voff blur color('foreground');
+
+    .is-open & {
+      border-top: 1px solid color('foreground');
+      max-height: 350px;
+      overflow-y: scroll;
+    }
+  }
+
+  &__opt {
+    padding: 5px;
+    display: block;
+    text-decoration: none;
+    padding-right: 30px;
+
+    &:hover {
+      background: color('gray');
+
+      span,
+      i {
+        background: color('gray');
+      }
+    }
+
+    &__container {
+      position: relative;
+      margin-left: 25px;
+    }
+
+  }
+
+  &__id {
+    position: absolute;
+    left: -25px;
+  }
+
+  i {
+    font-style: normal;
+  }
+}

@@ -1,0 +1,21 @@
+// _m-nav-secondary.scss
+
+.nav-secondary {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+
+  a {
+    text-decoration: none;
+    margin: 0 5px;
+    @include transition();
+
+    @include respond-to(medium) {
+      margin: 0 10px;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+}
