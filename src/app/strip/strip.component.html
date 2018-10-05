@@ -1,5 +1,6 @@
+<app-nav-tool></app-nav-tool>
 <article *ngIf="strip" id="{{ strip.id }}" class="strip">
   <h1 class="strip__title"><span>{{ strip.id }}.</span> {{ strip.name }}.</h1>
   <a [routerLink]="['/', 'strip', strip.id]"><img class="strip__image" src="{{ strip.image }}" alt=""></a>
 </article>
-<a *ngIf="router.url !== '/'" type="button" [routerLink]="['/']">Retour</a>
+<app-nav-tool></app-nav-tool>

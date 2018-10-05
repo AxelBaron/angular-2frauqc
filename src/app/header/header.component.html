@@ -30,7 +30,7 @@
     </div> <!-- /.header__nav__content -->
 
     <div class="header__nav__secondary">
-      <app-reading-tools></app-reading-tools>
+      <app-reading-tools *ngIf="router.url === '/'"></app-reading-tools>
     </div> <!-- /.header__nav__secondary -->
   </div> <!-- /.header__nav.container -->
 </header> <!-- /.header -->

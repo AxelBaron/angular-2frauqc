@@ -1,12 +1,12 @@
-// _m-comics-nav.scss
+@import "../../../assets/sass/_main.scss";
 
-.comics-nav {
+.nav-tool {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 
-  @include respond-to(medium){
+  @include respond-to(medium) {
     flex-direction: row;
   }
 
@@ -15,25 +15,26 @@
     font-family: font('secondary');
     text-decoration: none;
     padding: 10px;
+    text-transform: uppercase;
 
-    @include respond-to(medium){
+    @include respond-to(medium) {
       padding: 0 10px;
     }
 
-    .icon:before {
+    .icon {
       display: inline-block;
-      @include font-size(20px);
+      width: 30px;
       padding: 0 5px;
     }
 
     &--prev {
-      .icon:before {
+      .icon {
         transform: rotate(90deg);
       }
     }
 
     &--next {
-      .icon:before {
+      .icon {
         transform: rotate(-90deg);
       }
     }
