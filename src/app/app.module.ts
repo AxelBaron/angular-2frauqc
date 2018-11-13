@@ -17,6 +17,7 @@ import { SocialNetworksComponent } from './header/social-networks/social-network
 import { NavComponent } from './header/nav/nav.component';
 import { ReadingToolsComponent } from './header/reading-tools/reading-tools.component';
 import { NavToolComponent } from './strip/nav-tool/nav-tool.component';
+import { LoaderComponent } from './loader/loader.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -34,7 +35,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SocialNetworksComponent,
     NavComponent,
     ReadingToolsComponent,
-    NavToolComponent
+    NavToolComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

@@ -8,9 +8,9 @@ import { STRIPS } from '../mock-strips';
 })
 export class StripsComponent implements OnInit {
   PAGE_INDEX = 0;
-  PAGE_SIZE = 3;
+  PAGE_SIZE = 2;
   strips;
-  isVisible = true;
+  showMoreisVisible = true;
 
   constructor() { }
 
@@ -26,7 +26,7 @@ export class StripsComponent implements OnInit {
     this.PAGE_INDEX++;
     const data = await this.getData();
     if (data.length < this.PAGE_SIZE) {
-      this.isVisible = false;
+      this.showMoreisVisible = false;
     }
     this.strips = [...this.strips, ...data];
   }
