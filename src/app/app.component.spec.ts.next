@@ -1,0 +1,56 @@
+import { Component, OnInit } from '@angular/core';
+import { STRIPS } from '../mock-strips';
+
+@Component({
+  selector: 'app-strips',
+  templateUrl: './strips.component.html',
+  styleUrls: ['./strips.component.scss']
+})
+export class StripsComponent implements OnInit {
+  pageIndex: number;
+  PAGE_SIZE = 2;
+  displayedStrips;
+  strips;
+  lastStrip = false;
+  showStripReversed = true;
+
+
+  constructor() { }
+
+  async ngOnInit() {
+    this.strips = await this.getData();
+    if (this.showStripReversed) {
+      this.pageIndex = (this.strips.length - 1);
+      console.log('pageIndex', this.pageIndex);
+      this.strips.reverse();
+      console.log('strips', this.strips);
+      this.displayedStrips = this.strips.slice((this.pageIndex - 2), this.pageIndex);
+      console.log('displayedStrips', this.displayedStrips);
+    }
+  }
+
+  getData() {
+    return STRIPS;
+  }
+
+  loadNext() {
+    if (this.showStripReversed) {
+      this.pageIndex = this.pageIndex - this.PAGE_SIZE;
+    } else {
+      this.pageIndex = this.pageIndex + this.PAGE_SIZE;
+    }
+
+  }
+
+  async OldgetDataReversed() {
+    return STRIPS.reverse().slice(this.pageIndex * this.PAGE_SIZE, (this.pageIndex - 1) * this.PAGE_SIZE);
+  }
+
+  async loadMore(strips) {
+    this.pageIndex--;
+    if (strips.length <= (this.PAGE_SIZE - 1)) {
+      this.lastStrip = true;
+    }
+    this.displayedStrips = [...this.displayedStrips, ...strips];
+  }
+}

@@ -1,5 +1,8 @@
-<div id="top"></div>
-<app-header></app-header>
-<section class="section container">
-  <router-outlet></router-outlet>
-</section>
+<div *ngIf="appReady" class="app">
+  <div id="top"></div>
+  <app-header></app-header>
+  <section class="section container">
+    <router-outlet></router-outlet>
+  </section>
+</div>
+

@@ -1,17 +1,16 @@
-import {Component} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-    title = '2 Francais au Quebec';
+export class AppComponent implements OnInit {
+  appReady = false;
 
-    user = {
-        name: 'Arthur',
-        age: 42
-    };
+  constructor() {}
 
-    constructor() {}
+  ngOnInit() {
+    this.appReady = true;
+  }
 }
