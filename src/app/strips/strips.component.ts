@@ -16,23 +16,20 @@ export class StripsComponent implements OnInit {
   constructor() { }
 
   async ngOnInit() {
-    this.strips = await this.getData();
+    this.strips = await this.getNextStrips();
+    console.log(this.strips);
   }
 
-  async getData() {
-    if (this.displayReversed) {
-      return STRIPS.reverse().slice(this.PAGE_INDEX * this.PAGE_SIZE, (this.PAGE_INDEX + 1) * this.PAGE_SIZE);
-    } else {
-      return STRIPS.slice(this.PAGE_INDEX * this.PAGE_SIZE, (this.PAGE_INDEX + 1) * this.PAGE_SIZE);
-    }
+  async getNextStrips() {
+    return STRIPS.reverse().slice(this.PAGE_INDEX * this.PAGE_SIZE, (this.PAGE_INDEX + 1) * this.PAGE_SIZE);
   }
 
   async loadNext() {
     this.PAGE_INDEX++;
-    const data = await this.getData();
+    const data = await this.getNextStrips();
     if (data.length < this.PAGE_SIZE) {
       this.lastStrip = true;
     }
-    this.strips = [...this.strips, ...data];
+    this.strips = [...data, ...this.strips]; // a inverser
   }
 }
