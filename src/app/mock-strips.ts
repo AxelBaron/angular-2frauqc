@@ -1,6 +1,6 @@
 import { Strip } from './strip';
 
-export const STRIPS: Strip[] = [
+export const STRIPS: any[] = [
   { id: 0, name: 'L’avant départ', image: 'http://2francaisauquebec.com/imgs/bds/fr/0.jpg' },
   { id: 1, name: 'Arrivée à Montréal', image: 'http://2francaisauquebec.com/imgs/bds/fr/1.jpg' },
   { id: 2, name: 'Trajet vers le Cégep', image: 'http://2francaisauquebec.com/imgs/bds/fr/2.jpg' },

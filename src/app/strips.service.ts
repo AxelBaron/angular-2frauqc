@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Strip } from './strip';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,10 @@ export class StripsService {
   ) { }
 
   getAllStrips() {
-    console.log('service', this._db.collection('items').valueChanges());
     return this._db.collection('strips').valueChanges();
+  }
+
+  getStrip(id: number) {
+    return this._db.doc<Strip>(`strips/${id}`).valueChanges();
   }
 }

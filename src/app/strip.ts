@@ -1,5 +1,5 @@
 export interface Strip {
-  id: number;
-  name: string;
-  image: string;
+  order: number;
+  title: string;
+  img: string;
 }
