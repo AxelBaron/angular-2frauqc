@@ -1,3 +1,3 @@
 <app-strip *ngFor="let strip of strips" [strip]="strip"></app-strip>
-<button type="button" class="btn btn--show-comics" *ngIf="!lastStrip" (click)="loadNext()">Lire les BDs précédentes !</button>
+<button type="button" class="btn btn--show-comics" *ngIf="!lastStrip">Lire les BDs précédentes !</button>
 <button type="button" class="btn btn--show-comics" *ngIf="lastStrip">Vous êtes arrivés au début de l'histoire !</button>
