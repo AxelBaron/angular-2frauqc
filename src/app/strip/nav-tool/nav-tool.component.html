@@ -1,11 +1,17 @@
 <div class="nav-tool">
-  <!--TODO Get previous comics links-->
-  <!--TODO Hide when you don't have previous comics-->
-  <a class='nav-tool__link nav-tool__link--prev'><img class='icon icon-arrow' src="assets/img/arrow.svg"> BD précédente</a>
+  <a *ngIf="currentStrip != 0"
+     (click)="previousStrip()"
+     class='nav-tool__link nav-tool__link--prev'>
+    <img class='icon icon-arrow' src="assets/img/arrow.svg">
+    BD précédente
+  </a>
   <select name="select-comics">
     <option value="">Select comics</option>
   </select>
-  <!--TODO Get next comics links-->
-  <!--TODO Hide when you don't't have next comics-->
-  <a class='nav-tool__link nav-tool__link--next'>BD suivante <img class='icon icon-arrow' src="assets/img/arrow.svg"></a>
+  <a *ngIf="(currentStrip + 1) < strips.length"
+     (click)="nextStrip()"
+     class='nav-tool__link nav-tool__link--next'>
+    BD suivante
+    <img class='icon icon-arrow' src="assets/img/arrow.svg">
+  </a>
 </div> <!-- /.nav-tool -->
