@@ -39,5 +39,9 @@
         transform: rotate(-90deg);
       }
     }
+
+    &--hidden {
+      opacity: 0;
+    }
   }
 }
