@@ -18,7 +18,12 @@ export class StripComponent implements OnInit {
     private _strips: StripsService) { }
 
   async ngOnInit() {
-    if (!this.id){
+    /**
+     * We use to way to get the strip :
+     * - By url, in case we display the 'article' page.
+     * - By passing the strip with an input, in case we display the 'list' page. (who use this component)
+     **/
+    if (!this.id) {
       this._route.params.subscribe((params: Params) => this.id = params.id);
     }
     this._strips.getStrip(this.id).subscribe(result => {
