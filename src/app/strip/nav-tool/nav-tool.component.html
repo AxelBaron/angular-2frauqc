@@ -1,5 +1,5 @@
 <div class="nav-tool">
-  <a *ngIf="currentStrip != 0"
+  <a *ngIf="totalStrips && currentStrip != 0"
      (click)="previousStrip()"
      class='nav-tool__link nav-tool__link--prev'>
     <img class='icon icon-arrow' src="assets/img/arrow.svg">
@@ -8,10 +8,9 @@
   <select name="select-comics">
     <option value="">Select comics</option>
   </select>
-  <a *ngIf="(currentStrip + 1) < strips.length"
+  <a *ngIf="totalStrips && (currentStrip + 1) < totalStrips"
      (click)="nextStrip()"
      class='nav-tool__link nav-tool__link--next'>
     BD suivante
-    <img class='icon icon-arrow' src="assets/img/arrow.svg">
-  </a>
+    <img class='icon icon-arrow' src="assets/img/arrow.svg"></a>
 </div> <!-- /.nav-tool -->

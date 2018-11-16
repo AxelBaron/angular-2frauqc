@@ -11,6 +11,7 @@ import { StripsService } from '../../strips.service';
 
 export class NavToolComponent implements OnInit {
   strips;
+  totalStrips: number;
   @Input() currentStrip: number;
   private _currentSegment: any = [];
 
@@ -28,6 +29,7 @@ export class NavToolComponent implements OnInit {
 
     await this._strips.getAllStrips().subscribe(result => {
       this.strips = result;
+      this.totalStrips = this.strips.length;
     });
   }
 
