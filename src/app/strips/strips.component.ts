@@ -18,7 +18,6 @@ export class StripsComponent implements OnInit {
   async ngOnInit() {
     this._strips.getAllStrips().subscribe(result => {
       this.strips = result;
-      console.log(result);
     });
   }
 }
