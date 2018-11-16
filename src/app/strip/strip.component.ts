@@ -20,9 +20,9 @@ export class StripComponent implements OnInit, OnDestroy {
 
   async ngOnInit() {
     /**
-     * We use to way to get the strip :
-     * - By url, in case we display the 'article' page.
-     * - By passing the strip with an input, in case we display the 'list' page. (who use this component)
+     * We use two way to get the strip :
+     * - By url, when the 'article' page is displayed.
+     * - By data-binding, when the 'list' page is displayed. (who use this component)
      **/
 
     this.test();
