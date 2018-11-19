@@ -5,9 +5,12 @@
     <img class='icon icon-arrow' src="assets/img/arrow.svg">
     BD précédente
   </a>
-  <select name="select-comics">
-    <option value="">Select comics</option>
+
+  <select *ngIf="strips" name="select-comics">
+    <option disabled hidden>Selectionner une BD</option>
+    <option *ngFor="let strip of strips" value="{{ strip.order }}">{{ strip.order }}.{{ strip.title }}</option>
   </select>
+
   <a [ngClass]="{'nav-tool__link--hidden': totalStrips && (currentStrip + 1) >= totalStrips}"
      (click)="nextStrip()"
      class='nav-tool__link nav-tool__link--next'>

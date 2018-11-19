@@ -30,6 +30,7 @@ export class NavToolComponent implements OnInit {
     await this._strips.getAllStrips().subscribe(result => {
       this.strips = result;
       this.totalStrips = this.strips.length;
+      console.log('hé', this.strips);
     });
   }
 

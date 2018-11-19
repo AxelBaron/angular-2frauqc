@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { StripsService } from '../strips.service';
-import { Strip } from '../strip';
 
 @Component({
   selector: 'app-strips',
