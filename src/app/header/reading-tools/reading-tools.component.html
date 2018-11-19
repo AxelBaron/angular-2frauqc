@@ -3,10 +3,11 @@
     Sens de lecture
   </button>
   <div class="reading-tools__select-comic">
-    <select name="select-comics">
-      <!--TODO: Do the foreach-->
-      <option>Select comics</option>
-      Do the foreach
+    <select *ngIf="strips" (change)="selectOnChange($event.target.value)" name="select-comics">
+      <option disabled hidden>Selectionner une BD</option>
+      <option *ngFor="let strip of strips" value="{{ strip.order }}" (click)="navigate(strip.order)">
+        {{ strip.order }}.{{ strip.title }}
+      </option>
     </select>
   </div>
 </div> <!-- /.reading-tools -->
