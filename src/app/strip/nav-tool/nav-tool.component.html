@@ -6,9 +6,11 @@
     BD précédente
   </a>
 
-  <select *ngIf="strips" name="select-comics">
+  <select *ngIf="strips" (change)="selectOnChange($event.target.value)" name="select-comics">
     <option disabled hidden>Selectionner une BD</option>
-    <option *ngFor="let strip of strips" value="{{ strip.order }}">{{ strip.order }}.{{ strip.title }}</option>
+    <option *ngFor="let strip of strips" value="{{ strip.order }}" (click)="navigate(strip.order)">
+      {{ strip.order }}.{{ strip.title }}
+    </option>
   </select>
 
   <a [ngClass]="{'nav-tool__link--hidden': totalStrips && (currentStrip + 1) >= totalStrips}"
