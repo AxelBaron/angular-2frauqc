@@ -1,0 +1,32 @@
+@import "../../assets/sass/_main.scss";
+
+.up {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  @include size(80px);
+  text-decoration: none;
+  opacity: 0;
+  @include transition();
+  border: none;
+  outline: none;
+
+  &.is-visible {
+    opacity: 1;
+  }
+
+  img {
+    width: 80px;
+  }
+
+  span {
+    text-transform: uppercase;
+    font-family: font('secondary');
+    position: relative;
+    top: -44px;
+    color: white;
+    background: transparent;
+    @include font-size(20px);
+  }
+}

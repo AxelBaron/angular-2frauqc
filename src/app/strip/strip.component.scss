@@ -8,7 +8,8 @@
   overflow: hidden;
   @include transition();
 
-  &__title {
+  &__title,
+  &__title span {
     font-family: font(primary);
     @include font-size(20px);
   }

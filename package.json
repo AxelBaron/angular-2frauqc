@@ -22,6 +22,7 @@
     "@angular/router": "^6.1.10",
     "@ngx-translate/core": "^10.0.2",
     "@ngx-translate/http-loader": "^3.0.1",
+    "@nicky-lenaers/ngx-scroll-to": "^1.1.1",
     "angularfire2": "^5.1.0",
     "core-js": "^2.5.4",
     "firebase": "^5.5.8",
