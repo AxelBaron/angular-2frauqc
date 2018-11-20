@@ -20,7 +20,6 @@ export class ReadingToolsComponent implements OnInit {
   async ngOnInit() {
     await this._strips.getAllStrips().subscribe(result => {
       this.strips = result;
-      console.log('strip', this.strips);
     });
   }
 
@@ -32,7 +31,6 @@ export class ReadingToolsComponent implements OnInit {
     this.url = [];
     this.url.push(this.beginningUrl);
     this.url.push(id);
-    console.log('url', this.url);
     this._router.navigate(this.url);
   }
 }
