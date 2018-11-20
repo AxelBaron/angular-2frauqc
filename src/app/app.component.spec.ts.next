@@ -21,11 +21,8 @@ export class StripsComponent implements OnInit {
     this.strips = await this.getData();
     if (this.showStripReversed) {
       this.pageIndex = (this.strips.length - 1);
-      console.log('pageIndex', this.pageIndex);
       this.strips.reverse();
-      console.log('strips', this.strips);
       this.displayedStrips = this.strips.slice((this.pageIndex - 2), this.pageIndex);
-      console.log('displayedStrips', this.displayedStrips);
     }
   }
 
