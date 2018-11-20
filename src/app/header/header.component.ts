@@ -12,11 +12,11 @@ export class HeaderComponent implements OnInit {
   private _currentSegment: any = [];
 
   constructor(
-    public router: Router,
-    private translate: TranslateService,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private _translate: TranslateService,
+    public router: Router
   ) {
-    translate.setDefaultLang('en');
+    _translate.setDefaultLang('en');
   }
 
   ngOnInit() {
@@ -29,11 +29,10 @@ export class HeaderComponent implements OnInit {
           this.isVisible = true;
         }
       }
-      console.log(this.isVisible);
     });
   }
 
   switchLanguage(language: string) {
-    this.translate.use(language);
+    this._translate.use(language);
   }
 }
