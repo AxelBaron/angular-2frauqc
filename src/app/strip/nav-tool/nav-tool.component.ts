@@ -8,7 +8,6 @@ import { StripsService } from '../../strips.service';
   styleUrls: ['./nav-tool.component.scss']
 })
 
-
 export class NavToolComponent implements OnInit {
   strips;
   totalStrips: number;

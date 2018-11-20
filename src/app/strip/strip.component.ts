@@ -25,17 +25,17 @@ export class StripComponent implements OnInit, OnDestroy {
      * - By data-binding, when the 'list' page is displayed. (who use this component)
      **/
 
-    this.test();
+    this.getStrip();
 
     this.navigationSubscription = this.router.events.subscribe((e: any) => {
       // If it is a NavigationEnd event re-initalise the component
       if (e instanceof NavigationEnd) {
-        this.test();
+        this.getStrip();
       }
     });
   }
 
-  async test() {
+  async getStrip() {
     if (!this.id) {
       this._route.params.subscribe((params: Params) => this.id = params.id);
     }
