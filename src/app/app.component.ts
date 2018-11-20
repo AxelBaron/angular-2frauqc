@@ -18,12 +18,15 @@ export class AppComponent implements OnInit {
   }
 
   @HostListener('window:scroll', ['$event']) onScrollEvent($event) {
-    if(this.currentPosition > window.scrollY) {
+    if (this.currentPosition > window.scrollY) {
       this.visible = true;
     } else {
       this.visible = false;
     }
     this.currentPosition = window.scrollY;
-    /*console.log('Scroll Event', window.scrollY);*/
+
+    if (window.scrollY === 0) {
+      this.visible = false;
+    }
   }
 }
