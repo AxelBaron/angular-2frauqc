@@ -17,21 +17,6 @@
     margin-right: 8px;
     outline: none;
 
-    &:after {
-      content: $icon-arrow;
-      display: inline-block;
-      font-family: font(icon);
-      margin-left: 5px;
-      transform-origin: 50% 40% 0;
-      @include transition();
-    }
-
-    &.invert {
-      &:after {
-        transform: rotateX(180deg);
-      }
-    }
-
     &.hidden {
       display: none;
 

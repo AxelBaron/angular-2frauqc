@@ -22,16 +22,6 @@
       margin-right: 15px;
       @include transition();
     }
-
-    &::after {
-      content: $icon-arrow;
-      display: inline-block;
-      font-family: font(icon);
-      @include font-size(15px);
-      margin-left: 7px;
-      transform-origin: 50% 40% 0;
-      @include transition();
-    }
   }
 
   &__content {
