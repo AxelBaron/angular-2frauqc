@@ -26,7 +26,7 @@ export class NavToolComponent implements OnInit {
       segment.forEach(s => this._currentSegment.push(s.path));
     });
 
-    await this._strips.getAllStrips().subscribe(result => {
+    await this._strips.getStrips().subscribe(result => {
       this.strips = result;
       this.totalStrips = this.strips.length;
     });

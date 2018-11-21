@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StripsService } from '../../strips.service';
 import { Router } from '@angular/router';
+import OrderByDirection = firebase.firestore.OrderByDirection;
 
 @Component({
   selector: 'app-reading-tools',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
 export class ReadingToolsComponent implements OnInit {
   strips;
   url;
+  orderBy;
   private beginningUrl = 'strip';
 
   constructor(
@@ -18,7 +20,7 @@ export class ReadingToolsComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    await this._strips.getAllStrips().subscribe(result => {
+    await this._strips.getStrips().subscribe(result => {
       this.strips = result;
     });
   }
@@ -32,5 +34,19 @@ export class ReadingToolsComponent implements OnInit {
     this.url.push(this.beginningUrl);
     this.url.push(id);
     this._router.navigate(this.url);
+  }
+
+  changeOrder(){
+    // Get the orderBy via service.
+    this._strips.orderBy.subscribe(orderBy => this.orderBy = orderBy);
+    this.orderBy = (this.orderBy === 'asc') ? 'desc' : 'asc';
+    console.log('orderBy', this.orderBy);
+    // Change the order by
+    this._strips.changeOrderBy(this.orderBy);
+    // // Todo Pass  this.strips to stripsComponent
+    // this._strips.getStrips(2, this.orderBy).subscribe(result => {
+    //   this.strips = result;
+    //   console.log('change order', this.strips);
+    // });
   }
 }
