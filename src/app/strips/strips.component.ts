@@ -21,30 +21,31 @@ export class StripsComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    this.getStrips();
-    this._strips.getTotalStrips();
-  }
-
-  getStrips() {
     // Get limit via service.
     this._strips.limit.subscribe(limit => this.limit = limit);
 
     // Get orderBy via service.
     this._strips.orderBy.subscribe(orderBy => {
       this.orderBy = orderBy;
-
-      // Get strips if data updated.
-      this._strips.getStrips(this.limit, this.orderBy).subscribe(result => {
-        this.strips = result;
-      });
-
-      this._strips.totalStrips.subscribe(totalStrips => {
-        this.totalStrips = totalStrips;
-      });
-      if (this.newLimit === this.totalStrips) {
-        this.lastStrip = true;
-      }
+      this._strips.resetLimit();
+      this.getStrips();
+      this.lastStrip = false;
     });
+    this._strips.getTotalStrips();
+  }
+
+  getStrips() {
+    // Get strips if data updated.
+    this._strips.getStrips(this.limit, this.orderBy).subscribe(result => {
+      this.strips = result;
+    });
+
+    this._strips.totalStrips.subscribe(totalStrips => {
+      this.totalStrips = totalStrips;
+    });
+    if (this.newLimit === this.totalStrips) {
+      this.lastStrip = true;
+    }
 
     this.newLimit = this.limit + 2;
     this._strips.changeLimit(this.newLimit);

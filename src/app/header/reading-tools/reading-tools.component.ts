@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StripsService } from '../../strips.service';
 import { Router } from '@angular/router';
-import OrderByDirection = firebase.firestore.OrderByDirection;
 
 @Component({
   selector: 'app-reading-tools',
@@ -36,7 +35,7 @@ export class ReadingToolsComponent implements OnInit {
     this._router.navigate(this.url);
   }
 
-  changeOrder(){
+  changeOrder() {
     // Get the orderBy via service.
     this._strips.orderBy.subscribe(orderBy => this.orderBy = orderBy);
     this.orderBy = (this.orderBy === 'asc') ? 'desc' : 'asc';

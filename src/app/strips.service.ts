@@ -44,6 +44,10 @@ export class StripsService {
     this._defaultLimit.next(limit);
   }
 
+  resetLimit() {
+    this._defaultLimit.next(2);
+  }
+
   getTotalStrips() {
     this.getStrips().subscribe(result => {
       this._defaultTotalStrips.next(result.length);
