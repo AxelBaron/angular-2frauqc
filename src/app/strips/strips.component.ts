@@ -13,12 +13,19 @@ export class StripsComponent implements OnInit {
   orderBy;
   lastStrip = false;
   limit;
+  newLimit: number;
+  totalStrips;
 
   constructor(
     private _strips: StripsService
   ) { }
 
   async ngOnInit() {
+    this.getStrips();
+    this._strips.getTotalStrips();
+  }
+
+  getStrips() {
     // Get limit via service.
     this._strips.limit.subscribe(limit => this.limit = limit);
 
@@ -30,6 +37,20 @@ export class StripsComponent implements OnInit {
       this._strips.getStrips(this.limit, this.orderBy).subscribe(result => {
         this.strips = result;
       });
+
+      this._strips.totalStrips.subscribe(totalStrips => {
+        this.totalStrips = totalStrips;
+      });
+      if (this.newLimit === this.totalStrips) {
+        this.lastStrip = true;
+      }
     });
+
+    this.newLimit = this.limit + 2;
+    this._strips.changeLimit(this.newLimit);
+  }
+
+  nextStrips() {
+    this.getStrips();
   }
 }
