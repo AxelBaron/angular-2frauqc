@@ -1,0 +1,11 @@
+@import "../../assets/sass/_main.scss";
+// _l-footer.scss
+
+.footer {
+  text-align: center;
+
+  &__copyright {
+    margin-bottom: 15px;
+    color: color('gray', 'dark');
+  }
+}
