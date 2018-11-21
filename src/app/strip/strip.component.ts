@@ -36,7 +36,7 @@ export class StripComponent implements OnInit, OnDestroy {
   }
 
   async getStrip() {
-    if (!this.id) {
+    if (this.id === undefined) {
       this._route.params.subscribe((params: Params) => this.id = params.id);
     }
     await this._strips.getStrip(this.id).subscribe(result => {

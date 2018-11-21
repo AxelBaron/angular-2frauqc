@@ -20,7 +20,7 @@ export class StripsService {
   ) { }
 
   getStrips(limit?: number, orderBy?: OrderByDirection) {
-    const stripsCollection = this._db.collection('strips', ref => {
+    const stripsCollection = this._db.collection<Strip>('strips', ref => {
       if (limit) {
         return ref.orderBy('order', orderBy).limit(limit);
       } else {
@@ -36,6 +36,5 @@ export class StripsService {
 
   changeOrderBy(orderBy) {
     this._defaultOrderBy.next(orderBy);
-    console.log('default', this._defaultOrderBy);
   }
 }

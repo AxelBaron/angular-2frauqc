@@ -40,13 +40,7 @@ export class ReadingToolsComponent implements OnInit {
     // Get the orderBy via service.
     this._strips.orderBy.subscribe(orderBy => this.orderBy = orderBy);
     this.orderBy = (this.orderBy === 'asc') ? 'desc' : 'asc';
-    console.log('orderBy', this.orderBy);
     // Change the order by
     this._strips.changeOrderBy(this.orderBy);
-    // // Todo Pass  this.strips to stripsComponent
-    // this._strips.getStrips(2, this.orderBy).subscribe(result => {
-    //   this.strips = result;
-    //   console.log('change order', this.strips);
-    // });
   }
 }

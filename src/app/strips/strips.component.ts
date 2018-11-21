@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StripsService } from '../strips.service';
-import OrderByDirection = firebase.firestore.OrderByDirection;
+import { Strip } from '../strip';
 
 @Component({
   selector: 'app-strips',
@@ -9,7 +9,7 @@ import OrderByDirection = firebase.firestore.OrderByDirection;
 })
 
 export class StripsComponent implements OnInit {
-  strips;
+  strips: Strip[];
   orderBy;
   lastStrip = false;
   limit;
@@ -19,13 +19,17 @@ export class StripsComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    // Get orderBy via service.
-    this._strips.orderBy.subscribe(orderBy => this.orderBy = orderBy);
     // Get limit via service.
     this._strips.limit.subscribe(limit => this.limit = limit);
-    // GetStrips
-    this._strips.getStrips(this.limit, this.orderBy).subscribe(result => {
-      this.strips = result;
+
+    // Get orderBy via service.
+    this._strips.orderBy.subscribe(orderBy => {
+      this.orderBy = orderBy;
+
+      // Get strips if data updated.
+      this._strips.getStrips(this.limit, this.orderBy).subscribe(result => {
+        this.strips = result;
+      });
     });
   }
 }
