@@ -32,6 +32,14 @@ export class StripsService {
     return stripsCollection.valueChanges();
   }
 
+  getNextStrips(position?: number, orderBy?: OrderByDirection, limit?: number) {
+    if (orderBy === 'asc') {
+      return this._db.collection('strips', ref => ref.orderBy('order', orderBy).startAfter(position)).valueChanges();
+    } else {
+      return this._db.collection('strips', ref => ref.orderBy('order', orderBy).endBefore(position)).valueChanges();
+    }
+  }
+
   getStrip(id: number) {
     return this._db.doc<Strip>(`strips/${id}`).valueChanges();
   }

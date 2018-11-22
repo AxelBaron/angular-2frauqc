@@ -1,14 +1,16 @@
 <app-strip *ngFor="let strip of strips" [id]="strip.order"></app-strip>
 <button *ngIf="!lastStrip && strips"
         (click)="nextStrips()"
-        class="btn btn--show-comics">
+        class="btn btn--show-comics"
+        type="button">
   Lire les BDs
   <span *ngIf="orderBy === 'desc'">précédentes</span>
   <span *ngIf="orderBy === 'asc'">suivantes</span>
   !
 </button>
 <button *ngIf="lastStrip && strips"
-        class="btn btn--show-comics" >
+        class="btn btn--show-comics"
+        type="button">
   <span *ngIf="orderBy === 'desc'">
     Vous êtes arrivés au début de l'histoire !
   </span>
