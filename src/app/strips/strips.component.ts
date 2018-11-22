@@ -44,7 +44,7 @@ export class StripsComponent implements OnInit {
     // Get total strip by service
     await this._strips.getTotalStrips();
 
-    this._strips.getNextStrips(1, 'asc').subscribe(result => {
+    this._strips.getNextStrips(4, 'asc', 2).subscribe(result => {
       this.toto = result;
       console.log(this.toto);
     });
