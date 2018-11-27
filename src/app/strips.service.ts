@@ -12,10 +12,12 @@ export class StripsService {
   // https://angularfirebase.com/lessons/sharing-data-between-angular-components-four-methods/
   private _defaultOrderBy = new BehaviorSubject('desc');
   private _defaultLimit = new BehaviorSubject(2);
+  private _defaultPosition = new BehaviorSubject(0);
   private _defaultTotalStrips = new BehaviorSubject(0);
   orderBy = this._defaultOrderBy.asObservable();
   limit = this._defaultLimit.asObservable();
-  totalStrips = this._defaultTotalStrips.asObservable();
+  position = this._defaultPosition.asObservable();
+  totalStrip = this._defaultTotalStrips.asObservable();
 
   constructor(
     private _db: AngularFirestore
@@ -32,8 +34,8 @@ export class StripsService {
     return stripsCollection.valueChanges();
   }
 
-  getNextStrips(position?: number, orderBy?: OrderByDirection, limit?: number) {
-    return this._db.collection('strips', ref => ref.orderBy('order', orderBy).startAfter(position).limit(limit)).valueChanges();
+  getNextStrips(position?: number, orderBy?: OrderByDirection, limitation?) {
+    return this._db.collection('strips', ref => ref.orderBy('order', orderBy).startAfter(position).limit(limitation)).valueChanges();
   }
 
   getStrip(id: number) {
@@ -46,6 +48,10 @@ export class StripsService {
 
   changeLimit(limit) {
     this._defaultLimit.next(limit);
+  }
+
+  changePosition(position) {
+    this._defaultPosition.next(position);
   }
 
   resetLimit() {

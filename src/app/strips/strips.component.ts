@@ -11,17 +11,16 @@ import { Strip } from '../strip';
 export class StripsComponent implements OnInit {
   strips: Strip[];
   orderBy;
+  totalStrip;
   lastStrip = false;
-  limit;
-  newLimit: number;
-  totalStrips;
-  toto;
+  limit: number;
+  position: number;
 
   constructor(
     private _strips: StripsService
   ) { }
 
-  async ngOnInit() {
+  ngOnInit() {
     /*
     *  - Get the two first strips
     *  - On click call a new fonction with startAt
@@ -34,41 +33,33 @@ export class StripsComponent implements OnInit {
     this._strips.limit.subscribe(limit => this.limit = limit);
 
     // Get orderBy by service.
-    await this._strips.orderBy.subscribe(orderBy => {
-      this.orderBy = orderBy;
-      this._strips.resetLimit();
-      this.getStrips();
-      this.lastStrip = false;
-    });
+    this._strips.orderBy.subscribe(orderBy => this.orderBy = orderBy);
 
-    // Get total strip by service
-    await this._strips.getTotalStrips();
+    // Get Total strip for displaying btn
+    this._strips.getTotalStrips();
+    this._strips.totalStrip.subscribe(totalStrip => this.totalStrip = totalStrip);
 
-    this._strips.getNextStrips(4, 'asc', 2).subscribe(result => {
-      this.toto = result;
-      console.log(this.toto);
-    });
-  }
-
-  getStrips() {
-    // Get strips if data updated.
+    // Get the first Strips
     this._strips.getStrips(this.limit, this.orderBy).subscribe(result => {
       this.strips = result;
+      this.position = this.strips[this.strips.length - 1].order;
     });
-
-    this._strips.totalStrips.subscribe(totalStrips => {
-      this.totalStrips = totalStrips;
-    });
-
-    if (this.newLimit === this.totalStrips) {
-      this.lastStrip = true;
-    }
-
-    this.newLimit = this.limit + 2;
-    this._strips.changeLimit(this.newLimit);
   }
 
   nextStrips() {
-    this.getStrips();
+    this._strips.getNextStrips(this.position, this.orderBy, this.limit).subscribe((result: Strip[]) => {
+      if (this.orderBy === 'desc') {
+        this.position = this.position - this.limit;
+        if (this.position < 1) {
+          this.lastStrip = true;
+        }
+      } else {
+        this.position = this.position + this.limit;
+        if (this.totalStrip >= this.position) {
+          this.lastStrip = true;
+        }
+      }
+      this.strips = [...this.strips, ...result];
+    });
   }
 }
