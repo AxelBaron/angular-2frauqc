@@ -39,7 +39,7 @@ export class StripsComponent implements OnInit {
     this._strips.getTotalStrips();
     this._strips.totalStrip.subscribe(totalStrip => this.totalStrip = totalStrip);
 
-    // Get the first Strips
+    // Get the firsts Strips
     this._strips.getStrips(this.limit, this.orderBy).subscribe(result => {
       this.strips = result;
       this.position = this.strips[this.strips.length - 1].order;
