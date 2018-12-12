@@ -10,6 +10,7 @@ import { Strip } from '../strip';
 })
 export class StripComponent implements OnInit, OnDestroy {
   navigationSubscription;
+  showMyElement;
   strip: Strip;
   @Input() id: number;
   @ViewChild('img') img: ElementRef;

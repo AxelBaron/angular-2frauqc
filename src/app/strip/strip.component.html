@@ -3,8 +3,9 @@
   <h1 class="strip__title">
     <span>{{ strip.order }}.</span> {{ strip.title }}.
   </h1>
-  <a [routerLink]="['/', 'strip', strip.order]">
-    <img #img class="strip__image" src="{{ strip.img }}" alt="{{ strip.order }} - {{ strip.title }}">
+  <a (deferLoad)="showMyElement=true" [routerLink]="['/', 'strip', strip.order]">
+    <img *ngIf="showMyElement" class="strip__image" src="{{ strip.img }}" alt="{{ strip.order }} - {{ strip.title }}">
+    <p *ngIf="!showMyElement">Loading...</p>
   </a>
 </article>
 <app-nav-tool *ngIf="router.url !== '/' && strip" [currentStrip]="strip.order"></app-nav-tool>

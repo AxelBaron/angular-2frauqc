@@ -25,6 +25,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { UpComponent } from './up/up.component';
 import { FooterComponent } from './footer/footer.component';
+import { DeferLoadModule } from '@trademe/ng-defer-load';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -52,6 +53,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AngularFirestoreModule,
     AppRoutingModule,
     BrowserModule,
+    DeferLoadModule,
     FormsModule,
     HttpClientModule,
     ScrollToModule.forRoot(),
