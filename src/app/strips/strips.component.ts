@@ -28,30 +28,26 @@ export class StripsComponent implements OnInit {
     // Subscribe: Run one time and every time orderBy(in service) change.
     this._strips.orderBy.subscribe(orderBy => {
       this.orderBy = orderBy;
+      this.lastStrip = false;
 
       if (this.orderBy === 'asc') {
         this.position = 0;
+      } else {
+        this._strips.getTotalStrips();
+        this._strips.totalStrip.subscribe(totalStrip => this.totalStrip = totalStrip);
+        this.position = this.totalStrip - 1;
       }
 
       this._strips.getStrips(this.limit, this.orderBy).subscribe(result => {
         this.strips = result;
         console.log('strips', this.strips);
         if (this.orderBy === 'desc') {
-          this.position = this.position + this.limit;
-        } else {
           this.position = this.strips[this.strips.length - 1].order;
+        } else {
+          this.position = this.position + (this.limit - 1);
+          console.log(this.position);
         }
       });
-    });
-
-    this._strips.getStrips(this.limit, this.orderBy).subscribe(result => {
-      this.strips = result;
-      console.log('strips', this.strips);
-      if (this.orderBy === 'desc') {
-        this.position = this.position + this.limit;
-      } else {
-        this.position = this.strips[this.strips.length - 1].order;
-      }
     });
 
     // Get Total strip for the ''show more'' btn
