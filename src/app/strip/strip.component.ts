@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router';
 import { StripsService } from '../strips.service';
 import { Strip } from '../strip';
@@ -12,6 +12,7 @@ export class StripComponent implements OnInit, OnDestroy {
   navigationSubscription;
   strip: Strip;
   @Input() id: number;
+  @ViewChild('img') img: ElementRef;
 
   constructor(
     public router: Router,
@@ -42,6 +43,7 @@ export class StripComponent implements OnInit, OnDestroy {
     await this._strips.getStrip(this.id).subscribe(result => {
       this.strip = result;
     });
+    // TODO : Lazy load Img - https://blog.angularindepth.com/a-modern-solution-to-lazy-loading-using-intersection-observer-9280c149bbc
   }
 
   ngOnDestroy() {

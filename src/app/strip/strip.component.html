@@ -4,7 +4,7 @@
     <span>{{ strip.order }}.</span> {{ strip.title }}.
   </h1>
   <a [routerLink]="['/', 'strip', strip.order]">
-    <img class="strip__image" src="{{ strip.img }}" alt="{{ strip.order }} - {{ strip.title }}">
+    <img #img class="strip__image" src="{{ strip.img }}" alt="{{ strip.order }} - {{ strip.title }}">
   </a>
 </article>
 <app-nav-tool *ngIf="router.url !== '/' && strip" [currentStrip]="strip.order"></app-nav-tool>
