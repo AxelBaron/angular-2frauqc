@@ -45,7 +45,6 @@ export class StripsComponent implements OnInit {
         } else {
           this.position = this.position + (this.limit - 1);
         }
-        console.log('strips', this.strips);
       });
     });
   }
@@ -60,7 +59,6 @@ export class StripsComponent implements OnInit {
         this.lastStrip = this.position >= (this.totalStrip - 1); // Return true or false
       }
       this.strips = [...this.strips, ...result];
-      console.log('strips Nesxt', this.strips);
     });
   }
 }
