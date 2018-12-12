@@ -40,40 +40,27 @@ export class StripsComponent implements OnInit {
 
       this._strips.getStrips(this.limit, this.orderBy).subscribe(result => {
         this.strips = result;
-        console.log('strips', this.strips);
         if (this.orderBy === 'desc') {
           this.position = this.strips[this.strips.length - 1].order;
         } else {
           this.position = this.position + (this.limit - 1);
-          console.log(this.position);
         }
+        console.log('strips', this.strips);
       });
     });
-
-    // Get Total strip for the ''show more'' btn
-    this._strips.getTotalStrips();
-    this._strips.totalStrip.subscribe(totalStrip => this.totalStrip = totalStrip);
   }
 
   nextStrips() {
-    console.log('nextStrips');
     this._strips.getNextStrips(this.position, this.orderBy, this.limit).subscribe((result: Strip[]) => {
-      console.log('getNextStrips');
       if (this.orderBy === 'desc') {
-        console.log('desc');
         this.position = this.position - this.limit;
-        if (this.position < 1) {
-          this.lastStrip = true;
-        }
+        this.lastStrip = this.position < 1; // Return true or false
       } else {
-        console.log('asc');
         this.position = this.position + this.limit;
-        if (this.position >= (this.totalStrip - 1)) {
-          this.lastStrip = true;
-        }
+        this.lastStrip = this.position >= (this.totalStrip - 1); // Return true or false
       }
       this.strips = [...this.strips, ...result];
-      console.log('strip Updated', this.strips);
+      console.log('strips Nesxt', this.strips);
     });
   }
 }
