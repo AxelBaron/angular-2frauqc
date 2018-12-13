@@ -5,7 +5,7 @@
   </h1>
   <a (deferLoad)="showMyElement=true" [routerLink]="['/', 'strip', strip.order]">
     <img *ngIf="showMyElement" class="strip__image" src="{{ strip.img }}" alt="{{ strip.order }} - {{ strip.title }}">
-    <p *ngIf="!showMyElement">Loading...</p>
+    <app-loader *ngIf="!showMyElement"></app-loader>
   </a>
 </article>
 <app-nav-tool *ngIf="router.url !== '/' && strip" [currentStrip]="strip.order"></app-nav-tool>
