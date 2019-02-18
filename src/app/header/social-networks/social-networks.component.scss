@@ -4,6 +4,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 10px 0;
+
+  @include respond-to('medium'){
+    margin: 0;
+  }
 
   &__item {
     display: flex;

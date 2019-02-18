@@ -12,14 +12,11 @@
     </h1>
   </div>
 
-  <div class="header__nav container">
-    <button class="header__nav__trigger">
+  <div class="header__nav container" [ngClass]="{'is-open': toggleMenu}">
+    <button class="header__nav__trigger" (click)="toggleMenu = !toggleMenu">
       <app-burger></app-burger>
       Menu
     </button>
-
-    <!--For mobile display-->
-    <app-lang-switcher></app-lang-switcher>
 
     <div class="header__nav__content">
       <div class="header__nav__primary">

@@ -1,6 +1,12 @@
 @import "../../../assets/sass/_main.scss";
 
 .lang {
+  display: none;
+
+  @include respond-to('medium') {
+    display: block;
+  }
+
   * {
     @include font-size(45px);
     font-family: font('secondary');

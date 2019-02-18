@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
@@ -9,6 +9,8 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   isVisible: boolean;
+  toggleMenu: boolean;
+  @ViewChild('toggleMenu') el: ElementRef;
   private _currentSegment: any = [];
 
   constructor(
@@ -29,6 +31,7 @@ export class HeaderComponent implements OnInit {
           this.isVisible = true;
         }
       }
+      this.toggleMenu = false;
     });
   }
 

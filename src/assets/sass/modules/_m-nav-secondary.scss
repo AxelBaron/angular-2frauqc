@@ -2,12 +2,13 @@
 
 .nav-secondary {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 5px;
 
   a {
     text-decoration: none;
-    margin: 0 5px;
+    margin: 5px 15px;
     @include transition();
 
     @include respond-to(medium) {
