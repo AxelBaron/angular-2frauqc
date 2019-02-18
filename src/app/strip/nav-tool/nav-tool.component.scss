@@ -17,6 +17,7 @@
     text-decoration: none;
     padding: 10px;
     text-transform: uppercase;
+    cursor: pointer;
 
     @include respond-to(medium) {
       padding: 0 10px;
@@ -42,6 +43,7 @@
 
     &--hidden {
       opacity: 0;
+      z-index: -1;
     }
   }
 }

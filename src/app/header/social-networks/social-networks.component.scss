@@ -14,6 +14,10 @@
 
     img {
       width: 35px;
+
+      .socials-networks__item--tipeee & {
+        width: 85px;
+      }
     }
   }
 
@@ -23,6 +27,10 @@
 
     &--rss {
       width: 30px;
+    }
+
+    &--tipeee {
+      width: 85px;
     }
 
     &:hover {
