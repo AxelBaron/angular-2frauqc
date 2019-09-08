@@ -7,5 +7,9 @@
   &__copyright {
     margin-bottom: 15px;
     color: color('gray', 'dark');
+
+    a {
+      color: color('gray', 'dark');
+    }
   }
 }
